@@ -6,7 +6,7 @@ DWVERSION="0.8"
 DOCKER=/usr/bin/docker
 COMPOSE=/usr/local/bin/docker-compose
 CONFFILE=docker-compose.yml
-PIDBASE=/var/run/lxc
+PIDBASE=/var/run/docker
 
 SCRIPT=`basename ${BASH_SOURCE[0]}`
 
