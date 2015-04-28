@@ -24,10 +24,10 @@ Options:
 Commands:
   start   Start the specified compose service
   stop    Stop the specified compose service
-  status        Output current status for all defined scompose service
-  stats         Output live docker status for all compose services
+  status  Output current status for all defined scompose service
+  stats   Output live docker status for all compose services
   reset   Stop all running services and remove every service container.
-  exec    Exec a command on a service.
+  exec    'docker exec' a command on a service.
 ```
  
 ## status
