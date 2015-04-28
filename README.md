@@ -49,11 +49,28 @@ rabbit           a2b9c4224f19  yes  22608  172.17.0.21  21 minutes and 12 second
 
 ## start / stop
 
-These commands will start or stop the specified docker-compose service. Note that this program is designed to work on the service one by one. When a service has been started, the docker daemon is interrogated for the PID of the container process, it is then written in /var/run/docker/$SERVICE.pid.
+These commands will start or stop the specified docker-compose service. Note that this program is designed to work on the service one by one. When a service has been started, the docker daemon is interrogated for the PID of the container process, it is then written in /var/run/docker/$SERVICE.pid.  When a service is stopped, the PID file approprietely cleared. The PID file can then reliably be used by monitoring software like [monit](http://mmonit.com/monit/) to do health checks on the process itself from the host.
 
-When a service is stopped, the PID file approprietely cleared.
+By default stopping the container using *stop* will not remove the container. Use the -r option when stopping to also remove the container.
 
-Stopping with the -r option will also remove the container.
+
+```
+#host# ./dockwrkr.sh start web
+Starting vol_web_1...
+OK - service web has been started. (pid: 24833)
+#host# cat /var/run/docker/web.pid
+24833
+#host#
+```
+
+```
+#host# ./dockwrkr.sh stop -r web
+Stopping vol_web_1...
+OK - service web (lxc: 6240e4dc4eaa) has been stopped.
+Going to remove vol_web_1
+Removing vol_web_1...
+#host#
+```
 
 ## stats
 
