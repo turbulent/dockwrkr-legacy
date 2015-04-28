@@ -28,7 +28,8 @@ Commands:
   stats         Output live docker status for all compose services
   reset   Stop all running services and remove every service container.
   exec    Exec a command on a service.
-  
+```
+ 
 ## status
 
 Returns a table with the PID and UPTIME/EXIT status of the docker-compose services. The program will do the service to container name lookup itself.
